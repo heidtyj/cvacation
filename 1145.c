@@ -1,11 +1,9 @@
 #include<stdio.h>
 int main(){
-    int n;
-    int arr[50];
+    int arr[5];
     int cnt = 0, i, j;
     int result;
-    scanf("%d", &n);
-    for(i = 0; i < n; i++){
+    for(i = 0; i < 5; i++){
         scanf("%d", &arr[i]);
     }
     for (result = 1; ;result++){
@@ -14,7 +12,7 @@ int main(){
                 cnt++;
             }
         }
-        if (cnt >= n){
+        if (cnt >= 3){
             printf("%d\n", result);
             break;
         }
