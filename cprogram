@@ -12,12 +12,10 @@ void addTask() {
         printf("더 이상 추가할 수 없습니다.\n");
         return;
     }
-
     printf("할 일 입력: ");
-    getchar(); // 버퍼 정리
+    getchar();
     fgets(tasks[taskCount], MAX_TITLE, stdin);
-    tasks[taskCount][strcspn(tasks[taskCount], "\n")] = 0; // 개행 제거
-
+    tasks[taskCount][strcspn(tasks[taskCount], "\n")] = 0;
     taskCount++;
     printf("추가하였습니다.\n");
 }
@@ -27,7 +25,6 @@ void listTasks() {
         printf("할 일이 없습니다.\n");
         return;
     }
-
     printf("할 일 목록:\n");
     for (int i = 0; i < taskCount; i++) {
         printf("%d. %s\n", i + 1, tasks[i]);
@@ -39,7 +36,6 @@ void deleteTask() {
         printf("지울 게 없습니다.\n");
         return;
     }
-
     int num;
     printf("삭제할 번호 입력: ");
     scanf("%d", &num);
@@ -48,18 +44,15 @@ void deleteTask() {
         printf("없는 번호입니다.\n");
         return;
     }
-
     for (int i = num - 1; i < taskCount - 1; i++) {
         strcpy(tasks[i], tasks[i + 1]);
     }
     taskCount--;
-
     printf("지웠습니다.\n");
 }
 
 int main() {
     int choice;
-
     while (1) {
         printf("\n==== 할 일 관리 ====\n");
         printf("1. 추가\n");
@@ -68,7 +61,6 @@ int main() {
         printf("4. 종료\n");
         printf("선택 (1~4): ");
         scanf("%d", &choice);
-
         switch (choice) {
             case 1: addTask(); break;
             case 2: listTasks(); break;
