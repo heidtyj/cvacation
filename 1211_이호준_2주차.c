@@ -435,3 +435,88 @@ int main() {
     return 0;
 }
 
+//2775(v)
+#include <stdio.h>
+
+int main() {
+    int T, k, n;
+    int people[15][15] = {0}; // 최대 14층, 14호
+
+    // 0층 초기화
+    for (int i = 1; i <= 14; i++) {
+        people[0][i] = i;
+    }
+    // 나머지 층 계산
+    for (int floor = 1; floor <= 14; floor++) {
+        for (int room = 1; room <= 14; room++) {
+            people[floor][room] = people[floor][room - 1] + people[floor - 1][room];
+        }
+    }
+    scanf("%d", &T);
+    while (T--) {
+        scanf("%d %d", &k, &n);
+        printf("%d\n", people[k][n]);
+    }
+    return 0;
+}
+
+//5585(v)
+#include <stdio.h>
+
+int main() {
+    int price;
+    scanf("%d", &price);
+    int change = 1000 - price;
+    int coins[] = {500, 100, 50, 10, 5, 1};
+    int count = 0;
+
+    for (int i = 0; i < 6; i++) {
+        count += change / coins[i];
+        change %= coins[i];
+    }
+    printf("%d\n", count);
+    return 0;
+}
+
+//1764(s)
+#include <stdio.h>
+#include <string.h>
+#define MAX 1000
+
+char unheard[MAX][21];
+char result[MAX][21];
+
+int main() {
+    int N, M, count = 0;
+    scanf("%d %d", &N, &M);
+
+    for (int i = 0; i < N; i++) {
+        scanf("%s", unheard[i]);
+    }
+    for (int i = 0; i < M; i++) {
+        char name[21];
+        scanf("%s", name);
+
+        for (int j = 0; j < N; j++) {
+            if (strcmp(name, unheard[j]) == 0) {
+                strcpy(result[count++], name);
+                break;
+            }
+        }
+    }
+    for (int i = 0; i < count - 1; i++) {
+        for (int j = i + 1; j < count; j++) {
+            if (strcmp(result[i], result[j]) > 0) {
+                char temp[21];
+                strcpy(temp, result[i]);
+                strcpy(result[i], result[j]);
+                strcpy(result[j], temp);
+            }
+        }
+    }
+    printf("%d\n", count);
+    for (int i = 0; i < count; i++) {
+        printf("%s\n", result[i]);
+    }
+    return 0;
+}
