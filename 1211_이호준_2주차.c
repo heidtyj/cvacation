@@ -44,6 +44,22 @@ int reverse(int num) {
     return rev;
 }
 
+2869(v)
+#include <stdio.h>
+
+int main() {
+    int A, B, V;
+    int day;
+    scanf("%d %d %d", &A, &B, &V);
+    day = (V - B) / (A - B);
+
+    if ((V - B) % (A - B) != 0) {
+        day++;
+    }
+    printf("%d\n", day);
+    return 0;
+}
+
 2941(s)
 #include <stdio.h>
 #include <string.h>
@@ -80,16 +96,59 @@ int main() {
 */
 
 #include <stdio.h>
+#include <string.h>
+#define MAX 10000
+
+int stack[MAX];
+int top_idx = -1;
+void push(int x);
+int pop();
+int size();
+int empty();
+int top();
 
 int main() {
-    int A, B, V;
-    int day;
-    scanf("%d %d %d", &A, &B, &V);
-    day = (V) / (A - B);
+    int n;
+    scanf("%d", &n);
+    char cmd[10];
+    int x;
 
-    if ((V - B) % (A - B) != 0) {
-        day++;
+    for (int i = 0; i < n; i++) {
+        scanf("%s", cmd);
+        if (strcmp(cmd, "push") == 0) {
+            scanf("%d", &x);
+            push(x);
+        } else if (strcmp(cmd, "pop") == 0) {
+            printf("%d\n", pop());
+        } else if (strcmp(cmd, "size") == 0) {
+            printf("%d\n", size());
+        } else if (strcmp(cmd, "empty") == 0) {
+            printf("%d\n", empty());
+        } else if (strcmp(cmd, "top") == 0) {
+            printf("%d\n", top());
+        }
     }
-    printf("%d\n", day);
     return 0;
+}
+
+void push(int x) {
+    stack[++top_idx] = x;
+}
+
+int pop() {
+    if (top_idx == -1) return -1;
+    return stack[top_idx--];
+}
+
+int size() {
+    return top_idx + 1;
+}
+
+int empty() {
+    return (top_idx == -1) ? 1 : 0;
+}
+
+int top() {
+    if (top_idx == -1) return -1;
+    return stack[top_idx];
 }
