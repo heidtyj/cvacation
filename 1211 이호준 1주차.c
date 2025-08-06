@@ -1,5 +1,5 @@
-/*
-1009(b)
+
+//1009(b)
 #include <stdio.h>
 
 int main()
@@ -20,7 +20,7 @@ int main()
 	}
 }
 
-1145(b)
+//1145(b)
 #include<stdio.h>
 
 int main(){
@@ -47,7 +47,7 @@ int main(){
     return 0;
 }
 
-1037(b)
+//1037(b)
 #include <stdio.h>
 
 int main(){
@@ -67,7 +67,7 @@ int main(){
 	return 0;
 }
 
-1312(s)
+//1312(s)
 #include <stdio.h>
 
 int main()
@@ -88,7 +88,7 @@ int main()
 	}
 }
 
-1032(b)
+//1032(b)
 #include <stdio.h>
 #include <string.h>
 
@@ -113,7 +113,7 @@ int main() {
     return 0;
 }
 
-1152(b)
+//1152(b)
 #include <stdio.h>
 
 int main() {
@@ -138,7 +138,7 @@ int main() {
     return 0;
 }
 
-1546(b)
+//1546(b)
 #include <stdio.h>
 int main() {
     int n;
@@ -160,7 +160,7 @@ int main() {
     return 0;
 }
 
-2839(s)
+//2839(s)
 #include <stdio.h>
 
 int main() {
@@ -180,7 +180,7 @@ int main() {
     return 0;
 }
 
-3052(b)
+//3052(b)
 #include <stdio.h>
 int main() {
     int num;
@@ -220,7 +220,7 @@ int main() {
     return 0;
 }
 
-1978(b)
+//1978(b)
 #include <stdio.h>
 
 int main() {
@@ -248,8 +248,7 @@ int main() {
     return 0;
 }
 
-
-9012(s)
+//9012(s)
 #include <stdio.h>
 
 int main() {
@@ -285,7 +284,7 @@ int main() {
     return 0;
 }
 
-8958(b)
+//8958(b)
 #include <stdio.h>
 
 int main() {
@@ -311,7 +310,7 @@ int main() {
     return 0;
 }
 
-10809(b)
+//10809(b)
 #include <stdio.h>
 
 int main() {
@@ -335,7 +334,7 @@ int main() {
     return 0;
 }
 
-1157(b)
+//1157(b)
 #include <stdio.h>
 
 int main() {
@@ -368,7 +367,7 @@ int main() {
     return 0;
 }
 
-2751(s)
+//2751(s)
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -395,7 +394,7 @@ int main() {
     return 0;
 }
 
-4344(b)
+//4344(b)
 #include <stdio.h>
 
 int main() {
@@ -423,7 +422,7 @@ int main() {
     return 0;
 }
 
-2750(b)
+//2750(b)
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -445,4 +444,52 @@ int main() {
     }
     return 0;
 }
-*/
+
+//2577(b)
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+    scanf("%d %d %d", &a, &b, &c);
+    int result = a * b * c;
+    int count[10] = {0};
+
+    while (result > 0) {
+        int digit = result % 10;
+        count[digit]++;
+        result /= 10;
+    }
+    for (int i = 0; i < 10; i++) {
+        printf("%d\n", count[i]);
+    }
+    return 0;
+}
+
+//1316(s)
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int count = 0;
+
+    for (int i = 0; i < n; i++) {
+        char word[101];
+        int alphabet[26] = {0};
+        int is_group = 1;
+        scanf("%s", word);
+        for (int j = 0; word[j] != '\0'; j++) {
+            int now = word[j] - 'a';
+            if (word[j] != word[j - 1] && j > 0) {
+                if (alphabet[now]) {
+                    is_group = 0;
+                    break;
+                }
+            }
+            alphabet[now] = 1;
+        }
+        if (is_group) count++;
+    }
+    printf("%d\n", count);
+    return 0;
+}
