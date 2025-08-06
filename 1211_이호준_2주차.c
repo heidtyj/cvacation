@@ -85,7 +85,7 @@ int main() {
     int A, B, V;
     int day;
     scanf("%d %d %d", &A, &B, &V);
-    day = (V - B) / (A - B);
+    day = (V) / (A - B);
 
     if ((V - B) % (A - B) != 0) {
         day++;
