@@ -1,5 +1,7 @@
 #include<stdio.h>
-/*
+#include<string.h>
+#define MAX 101
+
 int main(){
     int a, b, i, c;
     scanf("%d %d", &a, &b);
@@ -11,7 +13,7 @@ int main(){
     printf("%d", i);
     return 0;
 }
-*/
+
 int gcd(int a, int b);
 int gcd2(int a, int b);
  
@@ -37,4 +39,97 @@ int gcd2(int a, int b){
         return a;
     }
     return gcd2(b, a%b);
+}
+
+
+
+//과제
+char arr[MAX];
+
+int main() {
+    fgets(arr, MAX, stdin);
+
+    for (int i = 0; arr[i] != '\0'; i++) {
+        if (arr[i] != ' ' && arr[i] != '\n' && arr[i] != '\t') {
+            printf("%c", arr[i]);
+        }
+    }
+    return 0;
+}
+
+
+ 
+char arr2[MAX];
+
+int main(){
+    int sum = 0;
+    fgets(arr2, MAX, stdin);
+    for (int i = 0; arr[i] != '\0'; i++) {
+        if (arr[i] >= '0' && arr[i] <= '9') { // 숫자면
+            sum += arr[i] - '0';
+        }
+    }
+    printf("%d", sum);
+}
+
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int arr[n][n]; 
+    int num = 1;
+    int top = 0, bottom = n - 1;
+    int left = 0, right = n - 1;
+    while (top <= bottom && left <= right) {
+        for (int i = left; i <= right; i++) arr[top][i] = num++;
+        top++;
+        for (int i = top; i <= bottom; i++) arr[i][right] = num++;
+        right--;
+        if (top <= bottom) {
+            for (int i = right; i >= left; i--) arr[bottom][i] = num++;
+            bottom--;
+        }
+        if (left <= right) {
+            for (int i = bottom; i >= top; i--) arr[i][left] = num++;
+            left++;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            printf("%3d", arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+
+int main() {
+    int a, b;
+    int n;
+    scanf("%d", &n);
+    int arr[n][n];
+    int value = 1;
+    int k = 0;
+    scanf("%d %d", &a, &b);
+    while (1){
+        for (int i = 0; i < b; i++){
+            for (int j = 0; j < a; j++){
+                if (i + j == k)
+                    arr[j][i] = value++;
+            }
+        }
+        k++;
+        if (value - 1 == a * b){
+            break;
+        }
+    }
+    for (int i = 0; i < a; i++){
+        for (int j = 0; j < b; j++) {
+            printf("%3d", arr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
 }

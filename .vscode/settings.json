@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "1211_이호준_4주차_1일추가": "c"
     }
 }
