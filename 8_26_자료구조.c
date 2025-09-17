@@ -64,9 +64,9 @@ char arr2[MAX];
 int main(){
     int sum = 0;
     fgets(arr2, MAX, stdin);
-    for (int i = 0; arr[i] != '\0'; i++) {
-        if (arr[i] >= '0' && arr[i] <= '9') { // 숫자면
-            sum += arr[i] - '0';
+    for (int i = 0; arr2[i] != '\0'; i++) {
+        if (arr2[i] >= '0' && arr2[i] <= '9') { // 숫자면
+            sum += arr2[i] - '0';
         }
     }
     printf("%d", sum);
