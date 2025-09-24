@@ -138,9 +138,7 @@ int main() {
     }
     for (int i = 0; i < n - 1; i++) {
         for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j].sum < arr[j + 1].sum ||
-                (arr[j].sum == arr[j + 1].sum &&
-                 strcmp(arr[j].name, arr[j + 1].name) > 0)) {
+            if (arr[j].sum < arr[j + 1].sum || (arr[j].sum == arr[j + 1].sum && strcmp(arr[j].name, arr[j + 1].name) > 0)) {
                 Student temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
