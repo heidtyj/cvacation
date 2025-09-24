@@ -9,7 +9,6 @@ typedef struct Node {
 int main() {
     Node *head = NULL, *tail = NULL;
     int sum = 0;
-    printf("정수 4개 입력: ");
     for (int i = 0; i < 4; i++) {
         int x;
         scanf("%d", &x);
